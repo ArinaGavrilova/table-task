@@ -1,0 +1,36 @@
+.root {
+  position: relative;
+  text-align:right;
+
+  li {
+    display: inline-block;
+
+    a {
+      text-align: center;
+      width: 45px;
+      line-height: 42px;
+      height: 45px;
+      border: 1px solid pink;
+      border-radius: 30px;
+      margin-right: 10px;
+      cursor: pointer;
+      display: inline-block;
+      color: pink;
+      outline: none;
+
+      &:hover {
+        background-color: pink;
+        color: #fff;
+      }
+    }
+  }
+
+  :global {
+    .selected {
+      a {
+        background-color: pink;
+        color: #fff;
+      }
+    }
+  }
+}
