@@ -1,8 +1,8 @@
 import { useAppDispatch } from '../../redux/store';
-import { Filter as FilterType, FilterProperty } from '../../redux/slices/filters/types';
+// import { Filter as FilterType, FilterProperty } from '../../redux/slices/filters/types';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { IconButton } from '@mui/material';
-import { selectItemsData, selectSortItemsData } from '../../redux/slices/users/selectors'
+import { selectSortItemsData } from '../../redux/slices/users/selectors'
 import { useSelector } from 'react-redux';
 import { clearSortItems, setSortItems } from '../../redux/slices/users/usersSlice';
 
@@ -23,11 +23,10 @@ const Filters = ({ field }: IProps) => {
         }
      };
 
-
     return (
         <div >       
-            <IconButton sx={{color:'white'}} onClick={onClickListItem}>
-                <ArrowDownwardIcon/>
+            <IconButton sx={{color:'white', width:'15px', float:'right', paddingTop:'2px'}} onClick={onClickListItem}>
+                <ArrowDownwardIcon />
             </IconButton>
         </div>
     )

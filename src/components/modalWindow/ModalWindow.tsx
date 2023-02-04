@@ -23,8 +23,6 @@ const ModalWindow = ({ selectedUser, isOpen, onClose }: IProps) => {
     const [access, setAccess] = useState(selectedUser?.access ?? false);
     const [birthDate, setBirthDate] = useState<string>(selectedUser?.birthDate ?? '');
 
-  
-
     const dispatch = useAppDispatch();
 
     const createItemHandler = () => {

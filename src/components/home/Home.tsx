@@ -1,7 +1,6 @@
 import { Container } from '@mui/system';
-import { Table, TableCell, TableHead, TableRow, IconButton, Modal } from '@mui/material';
+import { Table, TableCell, TableHead, TableRow } from '@mui/material';
 import TableBoard from '../tableBoard/TableBoard';
-// import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Paginate from '../pagination/Pagination';
 import AddUser from '../addUser/AddUser';
 import ModalWindow from '../modalWindow/ModalWindow';
@@ -19,23 +18,7 @@ import './Home.scss';
 import { User } from '../../redux/slices/users/types';
 import Filters from '../filters/Filters';
 
-// import { useAppDispatch } from '../../redux/store';
-import { setFilter } from '../../redux/slices/filters/filtersSlice';
-import { Filter as FilterType, FilterProperty } from '../../redux/slices/filters/types';
-import { useRef } from 'react';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-// import { IconButton } from '@mui/material';
-// import { selectItemsData } from '../../redux/slices/users/selectors'
-// import { useSelector } from 'react-redux';
-
-
-type FilterItem = {
-    name: string | number | boolean;
-    filterProperty: FilterProperty;
-};
-
 const rows = ['Id','Name', 'Lastname', 'Birthday', 'Email', 'Access', ' '];
-
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,33 +41,6 @@ const Home = () => {
     dispatch(fetchUser());
   }, [dispatch])
 
-
-
-  const onClickListItem = (el: FilterItem) => {
-    console.log('heloooo')
-    dispatch(setFilter(el))
-    
-  };
-
-  const onChangeBla = () => {
-    // console.log('blaaaa');
-    // const blu = filterList.map((el) => el.name)
-    // return blu
-    // console.log(filterList.map((el) => el))
-    // dispatch(setFilter(el))
-    // filterList.map((el) => el)
-  }
-  // console.log(onChangeBla());
-
-  // const blab = (el: FilterItem) => {
-  // console.log(el);
-  //   filterList.map((el) => el)
-  // dispatch(setFilter(el))
-  // }
-
-
-  
-
   return (
     <>
       <Container sx={{marginTop:'20px'}} maxWidth='lg' >
@@ -92,13 +48,10 @@ const Home = () => {
             <Table>
               <TableHead>
                 <TableRow sx={{background:'pink'}}>
-                  {rows.map((el, i) => (el !== ' ' && el !== 'Id') ? (
-                      <TableCell sx={{color:'white', fontWeight: 600, fontSize:'18px'}} key={i}>
-                        {el}
+                  {rows.map((el, i) => (el === 'Name') ? (
+                      <TableCell sx={{color:'white', fontWeight: 600, fontSize:'18px', textAlign:'left', paddingTop:'27px'}} key={i}>
                          <Filters field={el} />
-                        {/* <IconButton sx={{color:'white'}} onChangeBla={onChangeBla}>
-                            <ArrowDownwardIcon/>
-                        </IconButton> */}
+                        {el}
                       </TableCell>
                     ) : (
                       <TableCell sx={{color:'white', fontWeight: 600, fontSize:'18px'}}>
